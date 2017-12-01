@@ -54,6 +54,19 @@ int main()
     }
         
   }
-  
+
+  cout << "Highest GPA = " << highestGPA << endl;
+  cout << "The students holding the highest GPA are:" << endl;
+
+  while(!stack.isEmptyStack())
+  {
+    name = stack.top();
+    stack.pop();
+    cout << name << endl;
+  }
+
+cout << endl;
+
+return 0;  
   
 }
