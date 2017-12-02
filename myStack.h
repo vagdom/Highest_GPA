@@ -115,30 +115,47 @@ private:
     return list[stackTop -1];
   }
                                    
-  template<class Type>
-  void stackType<Type>::pop()
-  {
-    if(!isEmptyStack())
+template<class Type>
+void stackType<Type>::pop()
+{
+  if(!isEmptyStack())
       stackTop--;
-    else
+  else
       cout << "Cannot remove from an empty stack." << endl;
-  }  
+}  
                                    
-  template<class Type>
-   void stackType<Type>::copyStack(const stackType<Type>& otherStack)
-   {
-     delete [] list;
-     maxStackSize = otherStack.maxStackSize;
-     stackTop = otherStack.stackTop;
+template<class Type>
+void stackType<Type>::copyStack(const stackType<Type>& otherStack)
+{
+  delete [] list;
+  maxStackSize = otherStack.maxStackSize;
+  stackTop = otherStack.stackTop;
      
-     list = new Type[maxStackSize];
-     assert(list != NULL);
+  list = new Type[maxStackSize];
+  assert(list != NULL);
      
-     for(int j = 0; j < stackTop; j++)
+  for(int j = 0; j < stackTop; j++)
        list[j] = otherStack.list[j];
-   }  
+}  
      
-    
+//constructor
+template<class Type>
+stackType<Type>::stackType(int stackSize)
+{
+  if(stackSize <= 0)
+  {
+    cout << "The size of the array to hold the stack must be positive." << endl;
+    cout << "Creating an array of size 100." << endl;
+    maxStackSize = 100;
+  }
+  else
+    maxStackSize = stackSize;
+  
+  stackTop = 0;
+  list = new Type[maxStackSize];
+  
+  assert(list != NULL);
+}  
                                      
                                      
                                    
