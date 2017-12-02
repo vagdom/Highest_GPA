@@ -157,6 +157,19 @@ stackType<Type>::stackType(int stackSize)
   assert(list != NULL);
 }  
                                      
+template<class Type>
+stackType<Type>::stackType(const stackType<Type>& otherStack)
+{
+  list = NULL;
+  copyStack(otherStack);
+}
+                                   
+template<class Type>
+const stackType<Type>& stackType<Type>::operator=(const stackType<Type>& otherStack)
+{
+  if(this != &otherStack)
+    copyStack(otherStack);
+}  
                                      
                                    
 };                                   
