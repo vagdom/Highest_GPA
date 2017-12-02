@@ -107,6 +107,38 @@ private:
       cout << "Cannot add to a full stack." << endl;
   }  
                                      
+  template<class Type>
+  Type stackType<Type>::top()
+  {
+    assert(stackTop != 0);
+    
+    return list[stackTop -1];
+  }
+                                   
+  template<class Type>
+  void stackType<Type>::pop()
+  {
+    if(!isEmptyStack())
+      stackTop--;
+    else
+      cout << "Cannot remove from an empty stack." << endl;
+  }  
+                                   
+  template<class Type>
+   void stackType<Type>::copyStack(const stackType<Type>& otherStack)
+   {
+     delete [] list;
+     maxStackSize = otherStack.maxStackSize;
+     stackTop = otherStack.stackTop;
+     
+     list = new Type[maxStackSize];
+     assert(list != NULL);
+     
+     for(int j = 0; j < stackTop; j++)
+       list[j] = otherStack.list[j];
+   }  
+     
+    
                                      
                                      
                                    
