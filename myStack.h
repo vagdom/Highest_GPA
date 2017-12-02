@@ -27,6 +27,15 @@ public:
   void destroyStack();
   //Function to remove all the elements from the stack.                                 
                                    
+  void push(const Type& newItem);
+  //Function to add newItem to the stack.
+  //Precondition: The stack sxists and is not full.
+  //Postcondition: The stack is changed and newItem
+  //               is added to the top of the stack.
                                    
-                                   
+  Type top();                                 
+  //Function to return the top element of the stack.
+  //Precondition: The stack exists and is not empty.                                 
+  //Postcondition: If the stack is empty, the program                                 
+  //               terminates;                                   
 #endif
