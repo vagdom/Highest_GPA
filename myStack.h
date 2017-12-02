@@ -70,7 +70,45 @@ private:
   void copyStack(const stackType<Type>& otherStack);
   //Function to make a copy of the stack.
   //Postcondition: A copy of otherStack is created and
-  //               assigned to this stack.  
+  //               assigned to this stack.
+                                   
+  template<class Type>
+  void stackType<Type>::initializeStack()
+  {
+    stackTop = 0;    
+  }
+                                   
+  template<class Type>
+  void stackType<Type>::destroyStack()
+  {
+    stackTop = 0;
+  }  
+                                   
+  template<class Type>
+  bool stackType<Type>::isEmptyStack()
+  {
+    return (stackTop == 0);
+  }
+                                   
+  template<class Type>
+  bool stackType<Type>::isFullStack()
+  {
+    return (stackTop == maxStackSize);
+  }
+                                   
+  template<class Type>
+  void stackType<Type>::push(const Type& newItem)
+  {
+    if(!isFullStack())
+    {
+      list[stackTop] = newItem;
+    }
+    else
+      cout << "Cannot add to a full stack." << endl;
+  }  
+                                     
+                                     
+                                     
                                    
 };                                   
 #endif
