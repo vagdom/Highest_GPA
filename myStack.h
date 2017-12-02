@@ -37,5 +37,40 @@ public:
   //Function to return the top element of the stack.
   //Precondition: The stack exists and is not empty.                                 
   //Postcondition: If the stack is empty, the program                                 
-  //               terminates;                                   
+  //               terminates; otherwise, the top element
+  //               of the stack is returned.
+                                   
+  void top();
+  //Function to remove the top element of the stack.
+  //Precondition: The stack exists and is not empty.
+  //Postcondition: The stack is changed and the top
+  //               element is removed from the stack.
+                                   
+  stackType(int stackSize = 100);
+  //Constructor
+  //Creates an array of the size of the stackSize to hold the
+  //stack elements. The default stack size is 100.
+  //Postcondition: The variable list contains the base
+  //               address of the array; stackTop = 0; and
+  //               maxStackSize = stackSize.
+                                   
+  stackType(const stackType<Type>& otherStack);
+  //Copy constructor
+                                   
+  ~stackType();
+  //destructor
+  //Removes all the elements from the stack.
+  //Postcondition: The array (list) holding the stack
+  //               elements is deleted.
+                                   
+private:
+  int maxStackSize;                 //variable to store the maximum stack size
+  int stackTop;                     //variable to point to the top of the stack
+  Type *list;                       //pointer to the array that holds the stack elements
+  void copyStack(const stackType<Type>& otherStack);
+  //Function to make a copy of the stack.
+  //Postcondition: A copy of otherStack is created and
+  //               assigned to this stack.  
+                                   
+};                                   
 #endif
